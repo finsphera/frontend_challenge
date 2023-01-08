@@ -1,0 +1,66 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+		"Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+		"Helvetica Neue", sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.app {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	padding: 1rem 0.5rem;
+}
+
+main {
+	background-color: #333;
+	color: #fff;
+}
+
+section {
+	width: 100%;
+	max-width: 420px;
+	min-height: 400px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	padding: 1rem;
+	background-color: rgba(0, 0, 0, 0.4);
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	flex-grow: 1;
+	padding-bottom: 1rem;
+}
+
+input[type="text"],
+input[type="password"] {
+	width: 100%;
+	padding: 10px 15px;
+	border: none;
+	border-radius: 10px;
+}
+
+.title {
+	text-align: center;
+}
+
+button {
+	padding: 15px 40px;
+	border: none;
+	border-radius: 10px;
+	cursor: pointer;
+	font-size: large;
+}
