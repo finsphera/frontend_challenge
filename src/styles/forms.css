@@ -1,0 +1,55 @@
+.wrap {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	padding: 1.5rem;
+
+	background: rgb(119, 81, 159);
+	background: linear-gradient(
+		138deg,
+		rgba(119, 81, 159, 1) 0%,
+		rgba(19, 144, 187, 1) 90%
+	);
+	color: #333;
+}
+
+main {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-top: 1.5rem;
+}
+
+section {
+	display: flex;
+	flex-direction: column;
+	width: 568px;
+	padding: 1.5rem;
+	background-color: #f2f2f3;
+	border-radius: 18px;
+	text-align: center;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	min-height: 496px;
+	padding: 0 6rem;
+}
+.long-form {
+	min-height: 618px;
+}
+
+.pri-color {
+	color: #9dc72a;
+}
+.sec-color {
+	color: #f49c28;
+}
+.small-font {
+	font-size: smaller;
+}
+.small-padding {
+	padding-bottom: 1rem;
+}

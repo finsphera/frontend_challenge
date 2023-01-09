@@ -1,29 +1,55 @@
 import { Link } from "react-router-dom";
+import Logo from "../../components/Logo/Logo";
+import Navbar from "../../components/Navbar/Navbar";
+import "../../styles/forms.css";
 
 const Loginpage = () => {
 	return (
-		<main className="app">
-			<section>
-				<h2 className="title">Login</h2>
-				<form action="">
-					<label>
-						<p>Username:</p>
-						<input type="text" />
-					</label>
-					<label>
-						<p>Password:</p>
-						<input type="password" />
-					</label>
-					<button>Sign In</button>
-					<div>
-						Need an account?{" "}
-						<span>
-							<Link to="/register">Sign up!</Link>
-						</span>
-					</div>
-				</form>
-			</section>
-		</main>
+		<div className="wrap">
+			<Navbar />
+			<main>
+				<section>
+					<Logo />
+					<form action="">
+						<label className="pri-color">
+							Hola, por favor ingresa tus datos
+						</label>
+						<label>
+							<input
+								type="text"
+								name="email"
+								placeholder="Usuario o email"
+							/>
+						</label>
+						<label>
+							<input
+								type="password"
+								name="password"
+								placeholder="Contraseña"
+							/>
+						</label>
+						<button type="submit" className="btn-pri">
+							Iniciar Sesion
+						</button>
+						<hr />
+						<div>
+							<p className="small-font small-padding">
+								Aun no tienes cuenta con nosotros?
+							</p>
+
+							<Link to="/register">
+								<button
+									type="button"
+									className="btn btn-sec small-padding"
+								>
+									Registrate aqui!
+								</button>
+							</Link>
+						</div>
+					</form>
+				</section>
+			</main>
+		</div>
 	);
 };
 

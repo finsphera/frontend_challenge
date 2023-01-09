@@ -12,55 +12,37 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 }
 
-.app {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	min-height: 100vh;
-	padding: 1rem 0.5rem;
-}
-
-main {
-	background-color: #333;
-	color: #fff;
-}
-
-section {
-	width: 100%;
-	max-width: 420px;
-	min-height: 400px;
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
-	padding: 1rem;
-	background-color: rgba(0, 0, 0, 0.4);
-}
-
-form {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-evenly;
-	flex-grow: 1;
-	padding-bottom: 1rem;
-}
-
 input[type="text"],
 input[type="password"] {
 	width: 100%;
-	padding: 10px 15px;
+	padding: 16px 15px;
 	border: none;
-	border-radius: 10px;
+	border-radius: 7px;
 }
 
-.title {
-	text-align: center;
+::placeholder {
+	color: rgb(187, 187, 187);
 }
 
 button {
+	width: 100%;
 	padding: 15px 40px;
 	border: none;
-	border-radius: 10px;
+	border-radius: 8px;
 	cursor: pointer;
-	font-size: large;
+	color: #fff;
+}
+
+.btn-pri {
+	background-color: #9dc72a;
+}
+.btn-pri:hover {
+	background-color: #6e8b1d;
+}
+
+.btn-sec {
+	background-color: #f49c28;
+}
+.btn-sec:hover {
+	background-color: #ad6f1d;
 }
