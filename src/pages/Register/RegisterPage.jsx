@@ -1,31 +1,56 @@
 import CheckRoundedIcon from "@mui/icons-material/CheckRounded";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import FormAlert from "../../components/FormAlert/FormAlert";
 import Logo from "../../components/Logo/Logo";
 import Navbar from "../../components/Navbar/Navbar";
 import "../../styles/forms.css";
 
 const USER_REGEX = /^[a-zA_Z][a-zA-Z0-9-_@.]{3,23}$/;
-const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
+const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%*]).{8,24}$/;
 
 const RegisterPage = () => {
 	const [user, setUser] = useState({
-		email: "",
+		username: "",
 		password: "",
 		confirmPass: "",
 	});
 
+	const [userValid, setUserValid] = useState(false);
+	const [passwordValid, setPasswordValid] = useState(false);
+	const [conpassValid, setConpassValid] = useState(false);
+
 	const handleChange = (event) => {
-		console.log("email on chabge", event.value);
+		setUser({
+			...user,
+			[event.name]: event.value,
+		});
 
-		const result = USER_REGEX.test(event.value);
+		if (event.name === "username") {
+			console.log("checking username");
+			setUserValid(USER_REGEX.test(event.value));
+		}
 
-		console.log(result);
+		if (event.name === "password") {
+			console.log("checking password");
+			setPasswordValid(PWD_REGEX.test(event.value));
+		}
+
+		if (event.name === "confirmPass") {
+			console.log("checking confirm password");
+		}
 	};
+
+	useEffect(() => {
+		console.log("confirmpass is being change");
+		setConpassValid(user.password === user.confirmPass);
+	}, [user.password, user.confirmPass]);
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
+
+		console.log(user);
 	};
 
 	return (
@@ -41,33 +66,85 @@ const RegisterPage = () => {
 						<label className="pri-color">
 							Hola por favor ingresa tus datos
 						</label>
-						<label>
+						<label className="input-label">
 							<input
-								name="email"
+								name="username"
 								type="text"
 								placeholder="Usuario o email"
+								autoComplete="off"
 								onChange={(e) => handleChange(e.target)}
+								className="wrap-input"
 							/>
-							{/* <div>
-								email o username debe ser minimo 3 caracteres,
-								minuscula y mayusculas solamente{" "}
-								<CheckRoundedIcon color="success" />
-							</div> */}
+							{user.username !== "" ? (
+								userValid ? (
+									<CheckRoundedIcon
+										color="success"
+										className="wrap-icon"
+									/>
+								) : (
+									<CloseRoundedIcon
+										color="error"
+										className="wrap-icon"
+									/>
+								)
+							) : null}
+
+							{user.username !== "" && !userValid ? (
+								<FormAlert from="username" />
+							) : null}
 						</label>
-						<label>
+						<label className="input-label">
 							<input
 								name="password"
 								type="password"
 								placeholder="Contraseña"
+								onChange={(e) => handleChange(e.target)}
+								className="wrap-input"
 							/>
-							{/* <CloseRoundedIcon color="error" /> */}
+							{user.password !== "" ? (
+								passwordValid ? (
+									<CheckRoundedIcon
+										color="success"
+										className="wrap-icon"
+									/>
+								) : (
+									<CloseRoundedIcon
+										color="error"
+										className="wrap-icon"
+									/>
+								)
+							) : null}
+							{user.password !== "" && !passwordValid ? (
+								<FormAlert from="password" />
+							) : null}
 						</label>
-						<label>
+						<label className="input-label">
 							<input
-								name="repeatPass"
+								name="confirmPass"
 								type="password"
 								placeholder="Confirmar Contraseña"
+								onChange={(e) => handleChange(e.target)}
+								className="wrap-input"
 							/>
+							{user.confirmPass !== "" && user.password !== "" ? (
+								conpassValid ? (
+									<CheckRoundedIcon
+										color="success"
+										className="wrap-icon"
+									/>
+								) : (
+									<CloseRoundedIcon
+										color="error"
+										className="wrap-icon"
+									/>
+								)
+							) : null}
+
+							{user.confirmPass !== "" &&
+							user.password !== "" &&
+							!conpassValid ? (
+								<FormAlert from="confirm" />
+							) : null}
 						</label>
 						<label>
 							<input type="checkbox" name="conditions" /> Acepto y
@@ -81,7 +158,15 @@ const RegisterPage = () => {
 							</a>
 							.
 						</label>
-						<button type="submit" className="btn-pri">
+						<button
+							type="submit"
+							className="btn-pri"
+							disabled={
+								userValid && passwordValid && conpassValid
+									? false
+									: true
+							}
+						>
 							Registrar
 						</button>
 						<hr />
@@ -91,7 +176,7 @@ const RegisterPage = () => {
 							</p>
 							<Link to="/login">
 								<button type="button" className="btn-sec">
-									Log In!
+									Iniciar Sesion
 								</button>
 							</Link>
 						</div>

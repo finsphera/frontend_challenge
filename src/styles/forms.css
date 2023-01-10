@@ -37,6 +37,18 @@ form {
 	min-height: 496px;
 	padding: 0 6rem;
 }
+
+.input-label {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+}
+.wrap-input {
+	flex: 1 0 88%;
+}
+.wrap-icon {
+	flex: 1 0 12%;
+}
 .long-form {
 	min-height: 618px;
 }
