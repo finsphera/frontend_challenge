@@ -20,6 +20,7 @@ const RegisterPage = () => {
 	const [userValid, setUserValid] = useState(false);
 	const [passwordValid, setPasswordValid] = useState(false);
 	const [conpassValid, setConpassValid] = useState(false);
+	const [termsConditions, setTermConditions] = useState(false);
 
 	const handleChange = (event) => {
 		setUser({
@@ -43,7 +44,6 @@ const RegisterPage = () => {
 	};
 
 	useEffect(() => {
-		console.log("confirmpass is being change");
 		setConpassValid(user.password === user.confirmPass);
 	}, [user.password, user.confirmPass]);
 
@@ -59,96 +59,68 @@ const RegisterPage = () => {
 			<main>
 				<section>
 					<Logo />
-					<form
-						className="long-form"
-						onSubmit={(e) => handleSubmit(e)}
-					>
-						<label className="pri-color">
-							Hola por favor ingresa tus datos
-						</label>
+					<form className="long-form" onSubmit={(e) => handleSubmit(e)}>
+						<label className="pri-color">Hola por favor ingresa tus datos</label>
 						<label className="input-label">
 							<input
 								name="username"
 								type="text"
 								placeholder="Usuario o email"
-								autoComplete="off"
-								onChange={(e) => handleChange(e.target)}
 								className="wrap-input"
+								autoComplete="off"
+								required
+								onChange={(e) => handleChange(e.target)}
 							/>
 							{user.username !== "" ? (
 								userValid ? (
-									<CheckRoundedIcon
-										color="success"
-										className="wrap-icon"
-									/>
+									<CheckRoundedIcon color="success" className="wrap-icon" />
 								) : (
-									<CloseRoundedIcon
-										color="error"
-										className="wrap-icon"
-									/>
+									<CloseRoundedIcon color="error" className="wrap-icon" />
 								)
 							) : null}
 
-							{user.username !== "" && !userValid ? (
-								<FormAlert from="username" />
-							) : null}
+							{user.username !== "" && !userValid ? <FormAlert from="username" /> : null}
 						</label>
 						<label className="input-label">
 							<input
 								name="password"
 								type="password"
 								placeholder="Contraseña"
-								onChange={(e) => handleChange(e.target)}
 								className="wrap-input"
+								required
+								onChange={(e) => handleChange(e.target)}
 							/>
 							{user.password !== "" ? (
 								passwordValid ? (
-									<CheckRoundedIcon
-										color="success"
-										className="wrap-icon"
-									/>
+									<CheckRoundedIcon color="success" className="wrap-icon" />
 								) : (
-									<CloseRoundedIcon
-										color="error"
-										className="wrap-icon"
-									/>
+									<CloseRoundedIcon color="error" className="wrap-icon" />
 								)
 							) : null}
-							{user.password !== "" && !passwordValid ? (
-								<FormAlert from="password" />
-							) : null}
+							{user.password !== "" && !passwordValid ? <FormAlert from="password" /> : null}
 						</label>
 						<label className="input-label">
 							<input
 								name="confirmPass"
 								type="password"
-								placeholder="Confirmar Contraseña"
-								onChange={(e) => handleChange(e.target)}
 								className="wrap-input"
+								placeholder="Confirmar Contraseña"
+								required
+								onChange={(e) => handleChange(e.target)}
 							/>
 							{user.confirmPass !== "" && user.password !== "" ? (
 								conpassValid ? (
-									<CheckRoundedIcon
-										color="success"
-										className="wrap-icon"
-									/>
+									<CheckRoundedIcon color="success" className="wrap-icon" />
 								) : (
-									<CloseRoundedIcon
-										color="error"
-										className="wrap-icon"
-									/>
+									<CloseRoundedIcon color="error" className="wrap-icon" />
 								)
 							) : null}
 
-							{user.confirmPass !== "" &&
-							user.password !== "" &&
-							!conpassValid ? (
-								<FormAlert from="confirm" />
-							) : null}
+							{user.confirmPass !== "" && user.password !== "" && !conpassValid ? <FormAlert from="confirm" /> : null}
 						</label>
 						<label>
-							<input type="checkbox" name="conditions" /> Acepto y
-							he leído los{" "}
+							<input type="checkbox" name="termsConditions" onChange={() => setTermConditions(!termsConditions)} /> Acepto y he leído
+							los{" "}
 							<a className="default" href="#terms">
 								términos y condiciones
 							</a>{" "}
@@ -160,20 +132,14 @@ const RegisterPage = () => {
 						</label>
 						<button
 							type="submit"
-							className="btn-pri"
-							disabled={
-								userValid && passwordValid && conpassValid
-									? false
-									: true
-							}
+							className={userValid && passwordValid && conpassValid && termsConditions ? "btn-pri" : "btn-disabled"}
+							disabled={userValid && passwordValid && conpassValid && termsConditions ? false : true}
 						>
 							Registrar
 						</button>
 						<hr />
 						<div>
-							<p className="small-font small-padding">
-								Ya tienes cuenta con nosotros?
-							</p>
+							<p className="small-font small-padding">Ya tienes cuenta con nosotros?</p>
 							<Link to="/login">
 								<button type="button" className="btn-sec">
 									Iniciar Sesion
