@@ -1,10 +1,12 @@
 import CheckRoundedIcon from "@mui/icons-material/CheckRounded";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 import FormAlert from "../../components/FormAlert/FormAlert";
 import Logo from "../../components/Logo/Logo";
 import Navbar from "../../components/Navbar/Navbar";
+import { loginUser } from "../../redux/users/action";
 import "../../styles/forms.css";
 
 const USER_REGEX = /^[a-zA_Z][a-zA-Z0-9-_@.]{3,23}$/;
@@ -22,6 +24,10 @@ const RegisterPage = () => {
 	const [conpassValid, setConpassValid] = useState(false);
 	const [termsConditions, setTermConditions] = useState(false);
 
+	const dispatch = useDispatch();
+	const data = useSelector((state) => state.userReducer);
+	const navigate = useNavigate();
+
 	const handleChange = (event) => {
 		setUser({
 			...user,
@@ -37,10 +43,6 @@ const RegisterPage = () => {
 			console.log("checking password");
 			setPasswordValid(PWD_REGEX.test(event.value));
 		}
-
-		if (event.name === "confirmPass") {
-			console.log("checking confirm password");
-		}
 	};
 
 	useEffect(() => {
@@ -50,8 +52,14 @@ const RegisterPage = () => {
 	const handleSubmit = (event) => {
 		event.preventDefault();
 
-		console.log(user);
+		dispatch(loginUser(user));
 	};
+
+	useEffect(() => {
+		if (data.isAuthenticated) {
+			navigate("/");
+		}
+	}, [data, navigate]);
 
 	return (
 		<div className="wrap">
