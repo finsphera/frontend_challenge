@@ -5,11 +5,7 @@
 	padding: 1.5rem;
 
 	background: rgb(119, 81, 159);
-	background: linear-gradient(
-		138deg,
-		rgba(119, 81, 159, 1) 0%,
-		rgba(19, 144, 187, 1) 90%
-	);
+	background: linear-gradient(138deg, rgba(119, 81, 159, 1) 0%, rgba(19, 144, 187, 1) 90%);
 	color: #333;
 }
 
