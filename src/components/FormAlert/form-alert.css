@@ -1,0 +1,8 @@
+.alert {
+	flex: 1;
+	font-size: smaller;
+	color: #a51313;
+}
+.offscreen {
+	display: none;
+}
