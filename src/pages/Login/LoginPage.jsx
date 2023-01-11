@@ -7,10 +7,10 @@ const Loginpage = () => {
 	return (
 		<div className="wrap">
 			<Navbar />
-			<main>
-				<section>
+			<main className="main-window">
+				<section className="section-form">
 					<Logo />
-					<form action="">
+					<form className="auth-form" action="">
 						<label className="pri-color">Hola, por favor ingresa tus datos</label>
 						<label>
 							<input type="text" name="email" placeholder="Usuario o email" />

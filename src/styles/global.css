@@ -10,8 +10,8 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 }
 
-input[type="text"],
-input[type="password"] {
+form input[type="text"],
+form input[type="password"] {
 	width: 100%;
 	padding: 16px 15px;
 	border: none;

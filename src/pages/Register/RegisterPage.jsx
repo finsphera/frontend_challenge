@@ -64,10 +64,10 @@ const RegisterPage = () => {
 	return (
 		<div className="wrap">
 			<Navbar />
-			<main>
-				<section>
+			<main className="main-window">
+				<section className="section-form">
 					<Logo />
-					<form className="long-form" onSubmit={(e) => handleSubmit(e)}>
+					<form className="auth-form long-form" onSubmit={(e) => handleSubmit(e)}>
 						<label className="pri-color">Hola por favor ingresa tus datos</label>
 						<label className="input-label">
 							<input
