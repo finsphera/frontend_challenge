@@ -1,0 +1,31 @@
+.flex-left {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	flex: 1 1 18%;
+	background-color: #44318d;
+	color: #ebebeb;
+	padding: 1.5rem 0;
+}
+
+.flex-center {
+	width: 100%;
+	text-align: center;
+}
+
+ul {
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+}
+
+li {
+	padding: 18px 0;
+	cursor: pointer;
+	flex: 1;
+}
+li:hover {
+	background-color: #2a1b3a;
+}

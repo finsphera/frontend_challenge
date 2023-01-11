@@ -1,0 +1,18 @@
+.main-container {
+	display: flex;
+	height: 100vh;
+}
+
+.flex-right {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	text-align: center;
+}
+
+/* Color Palett */
+/* primary : #44318d
+secondary: #d93f87
+pridark: #2a1b3a
+prilight: #8265a7
+standard: #a4b3b6 */
