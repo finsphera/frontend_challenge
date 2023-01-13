@@ -1,3 +1,6 @@
 .small-logo {
 	height: 54px;
 }
+.small-logo:hover {
+	cursor: pointer;
+}
