@@ -1,4 +1,48 @@
 .cha-container {
-	border: 2px solid #333;
 	flex: 2;
+}
+.character-holder {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+.card {
+	flex: 1 0 22%;
+	border: 3px solid #44318d;
+	border-radius: 5px;
+	margin: 0.5rem;
+	padding: 1rem;
+	min-width: 195px;
+	/* max-width: 250px; */
+}
+.card-img {
+	width: 100%;
+	border-radius: 5px;
+}
+.card-details {
+	display: flex;
+	flex-flow: column;
+	padding-top: 1rem;
+	font-weight: 500;
+}
+
+.card-status-title {
+	display: flex;
+	flex-flow: row;
+	justify-content: space-between;
+}
+
+.card-title {
+	font-size: 1.5rem;
+}
+/* .left-icon {
+}
+
+.card-label-3 {
+} */
+.card-label-1 {
+	text-align: right;
+}
+.card-label-2 {
+	text-align: right;
 }
