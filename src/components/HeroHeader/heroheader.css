@@ -1,0 +1,24 @@
+.hero-container {
+	display: flex;
+	justify-content: space-between;
+	margin: 0.5rem;
+	padding: 2rem;
+	background-color: #44318d;
+	color: #fff;
+	border: 3px solid #8265a7;
+	border-radius: 5px;
+}
+.splitted {
+	flex: 1;
+}
+
+.btn-secondary {
+	height: 100%;
+	background-color: #d93f87;
+	color: #fff;
+	font-size: large;
+}
+.btn-secondary:hover {
+	cursor: pointer;
+	background-color: #6d2345;
+}
