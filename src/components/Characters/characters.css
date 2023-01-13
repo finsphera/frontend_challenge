@@ -11,12 +11,18 @@
 	flex-direction: column;
 	justify-content: space-between;
 	flex: 1 0 20%;
-	border: 3px solid #44318d;
+	border: 3px solid #2a1b3a;
 	border-radius: 5px;
 	margin: 0.5rem;
 	padding: 1rem;
 	min-width: 195px;
 	/* max-width: 250px; */
+	background-color: #44318d;
+	color: #fff;
+}
+.card:hover {
+	background-color: #2a1b3a;
+	border: 3px solid #44318d;
 }
 .card-img {
 	width: 100%;

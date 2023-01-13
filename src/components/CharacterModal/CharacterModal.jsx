@@ -22,17 +22,20 @@ const CharacterModal = (props) => {
 					<Typography id="modal-modal-title" variant="h4" component="h2" sx={{ mt: 3, color: "#d93f87" }}>
 						{person.id} - {person.name}
 					</Typography>
-					<Typography id="modal-modal-description" sx={{ mt: 2 }}>
-						Species: {person.species}
+					<Typography id="modal-modal-description-1" sx={{ mt: 2 }}>
+						<b>Status:</b> {person.status}
 					</Typography>
-					<Typography id="modal-modal-description" sx={{ mt: 2 }}>
-						Gender: {person.gender}
+					<Typography id="modal-modal-description-2" sx={{ mt: 2 }}>
+						<b>Species:</b> {person.species}
 					</Typography>
-					<Typography id="modal-modal-description" sx={{ mt: 2 }}>
-						Origin: {person.origin.name}
+					<Typography id="modal-modal-description-3" sx={{ mt: 2 }}>
+						<b>Gender:</b> {person.gender}
 					</Typography>
-					<Typography id="modal-modal-description" sx={{ mt: 2 }}>
-						Location: {person.location.name}
+					<Typography id="modal-modal-description-4" sx={{ mt: 2 }}>
+						<b>Origin:</b> {person.origin.name}
+					</Typography>
+					<Typography id="modal-modal-description-5" sx={{ mt: 2 }}>
+						<b>Location:</b> {person.location.name}
 					</Typography>
 				</Box>
 			</Modal>
