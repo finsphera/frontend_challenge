@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import useRandomCharacters from "../../hooks/useRandomCharacters";
+import CharacterModal from "../CharacterModal/CharacterModal";
 import "./characters.css";
 
 const Characters = () => {
@@ -18,7 +19,7 @@ const Characters = () => {
 			<div className="character-holder">
 				{characters &&
 					characters.length > 0 &&
-					characters.map((person) => {
+					characters.map((person, idx) => {
 						return (
 							<div className="card" key={person.id}>
 								<img src={person.image} alt="a character" className="card-img" />
@@ -33,9 +34,10 @@ const Characters = () => {
 										)}
 										<h3 className="card-title">{person.name}</h3>
 									</div>
-									<label className="card-label-1">Species: {person.species}</label>
-									<label className="card-label-2">Gender: {person.gender}</label>
-									<label className="card-label-3">Origin: {person.origin.name}</label>
+									{/* <label className="card-label-1">Species: {person.species}</label> */}
+									{/* <label className="card-label-2">Gender: {person.gender}</label>
+									<label className="card-label-3">Origin: {person.origin.name}</label> */}
+									<CharacterModal cid={idx} />
 								</div>
 							</div>
 						);

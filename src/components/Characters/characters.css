@@ -7,6 +7,9 @@
 	justify-content: space-around;
 }
 .card {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 	flex: 1 0 20%;
 	border: 3px solid #44318d;
 	border-radius: 5px;
@@ -30,16 +33,13 @@
 	display: flex;
 	flex-flow: row;
 	justify-content: space-between;
+	padding: 1rem 0;
 }
 
 .card-title {
 	font-size: 1.5rem;
 }
-/* .left-icon {
-}
 
-.card-label-3 {
-} */
 .card-label-1 {
 	text-align: right;
 }
