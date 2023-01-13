@@ -1,0 +1,51 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Helvetica Neue", sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+form input[type="text"],
+form input[type="password"] {
+	width: 100%;
+	padding: 16px 15px;
+	border: none;
+	border-radius: 7px;
+}
+
+::placeholder {
+	color: rgb(187, 187, 187);
+}
+
+button {
+	width: 100%;
+	padding: 15px 40px;
+	border: none;
+	border-radius: 8px;
+	cursor: pointer;
+	color: #fff;
+}
+
+.btn-pri {
+	background-color: #9dc72a;
+}
+.btn-pri:hover {
+	background-color: #6e8b1d;
+}
+
+.btn-sec {
+	background-color: #f49c28;
+}
+.btn-sec:hover {
+	background-color: #ad6f1d;
+}
+
+.btn-disabled {
+	background-color: #9dc72a;
+	cursor: not-allowed;
+}

@@ -1,0 +1,1 @@
+export const SAVE_CHARACTERS = "SAVE_CHARACTERS";

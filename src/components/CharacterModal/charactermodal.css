@@ -1,0 +1,32 @@
+.modal-box {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	/* width: 400; */
+	max-width: 500px;
+	background-color: #44318d;
+	border: 3px solid #333333;
+	color: #fff;
+	border-radius: 5px;
+	box-shadow: 5px 10px #333333;
+	padding: 4rem;
+}
+.modal-box img {
+	width: 100%;
+	margin-bottom: 24px;
+	border-radius: 5px;
+}
+.modal-hr {
+	padding: 1rem 0;
+}
+
+.btn-secondary {
+	background-color: #d93f87;
+	color: #fff;
+	font-size: large;
+}
+.btn-secondary:hover {
+	cursor: pointer;
+	background-color: #6d2345;
+}

@@ -1,0 +1,29 @@
+.get-started {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	align-items: center;
+	padding-bottom: 1.5rem;
+}
+
+.get-started ul {
+	list-style: none;
+	display: flex;
+	flex-flow: row wrap;
+}
+
+.get-started li {
+	display: block;
+	padding: 20px 40px;
+}
+
+.get-started a {
+	text-decoration: none;
+	color: #fff;
+}
+.get-started a:hover {
+	border-bottom: #fff 2px solid;
+}
+/* header li:hover {
+	background-color: rgba(0, 0, 0, 0.4);
+} */
