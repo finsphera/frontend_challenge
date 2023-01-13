@@ -1,8 +1,10 @@
 import "./heroheader.css";
 import { useSelector } from "react-redux";
+import useRandomCharacters from "../../hooks/useRandomCharacters";
 
 const HeroHeader = () => {
 	const user = useSelector((state) => state.userReducer.user);
+	const { getCharacters } = useRandomCharacters();
 
 	return (
 		<div className="hero-container">
@@ -11,7 +13,9 @@ const HeroHeader = () => {
 				<h3>Welcome Back {user.username}!</h3>
 			</section>
 			<section className="splitted">
-				<button className="btn btn-secondary">Random Characters!</button>
+				<button onClick={getCharacters} className="btn btn-secondary">
+					Random Characters!
+				</button>
 			</section>
 		</div>
 	);
