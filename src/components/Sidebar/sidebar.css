@@ -25,7 +25,16 @@
 	padding: 18px 0;
 	cursor: pointer;
 	flex: 1;
+	font-size: 22px;
 }
 .flex-center li:hover {
 	background-color: #2a1b3a;
+}
+
+.socials a {
+	text-decoration: none;
+	color: #fff;
+}
+.socials a:hover {
+	border-bottom: #fff 2px solid;
 }

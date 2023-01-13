@@ -14,7 +14,7 @@ const HeroHeader = () => {
 			</section>
 			<section className="splitted">
 				<button onClick={getCharacters} className="btn btn-secondary">
-					Random Characters!
+					Randomize Characters!
 				</button>
 			</section>
 		</div>
