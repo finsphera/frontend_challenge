@@ -1,45 +1,24 @@
 import { faFaceLaughBeam, faQuestion, faSkull } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import axios from "axios";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
+import useRandomCharacters from "../../hooks/useRandomCharacters";
 import "./characters.css";
 
 const Characters = () => {
-	const [charList, setCharlist] = useState([]);
-
-	const generateNumArray = () => {
-		//const randomNum = Math.floor(Math.random() * 826);
-		const randomArray = Array(8)
-			.fill()
-			.map(() => Math.floor(1 + (826 - 1 + 1) * Math.random()));
-
-		console.log("a random number", randomArray);
-
-		return randomArray;
-	};
-
-	const getRandomCharacters = useCallback(() => {
-		//Usecallback es para retener la ref de la funcion 1 sola vez...
-		axios
-			.get(`https://rickandmortyapi.com/api/character/${generateNumArray()}`)
-			.then((res) => {
-				console.log(res.data);
-				setCharlist(res.data);
-			})
-			.catch((err) => {
-				console.log(err);
-			});
-	}, [setCharlist]);
+	const { characters } = useSelector((state) => state.characterReducer);
+	const { getCharacters } = useRandomCharacters();
 
 	useEffect(() => {
-		getRandomCharacters();
-	}, [getRandomCharacters]);
+		getCharacters();
+	}, [getCharacters]);
 
 	return (
 		<section className="cha-container">
 			<div className="character-holder">
-				{charList.length > 0 &&
-					charList.map((person) => {
+				{characters &&
+					characters.length > 0 &&
+					characters.map((person) => {
 						return (
 							<div className="card" key={person.id}>
 								<img src={person.image} alt="a character" className="card-img" />
@@ -62,7 +41,6 @@ const Characters = () => {
 						);
 					})}
 			</div>
-			<button onClick={getRandomCharacters}>Get Random Characters!</button>
 		</section>
 	);
 };

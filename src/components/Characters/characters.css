@@ -7,7 +7,7 @@
 	justify-content: space-around;
 }
 .card {
-	flex: 1 0 22%;
+	flex: 1 0 20%;
 	border: 3px solid #44318d;
 	border-radius: 5px;
 	margin: 0.5rem;

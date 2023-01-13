@@ -3,7 +3,7 @@ import "./navbar.css";
 
 const Navbar = () => {
 	return (
-		<header>
+		<header className="get-started">
 			<Logo />
 			<nav>
 				<ul>

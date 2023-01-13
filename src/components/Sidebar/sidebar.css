@@ -14,18 +14,18 @@
 	text-align: center;
 }
 
-ul {
+.flex-center ul {
 	list-style: none;
 	display: flex;
 	flex-direction: column;
 	flex: 1;
 }
 
-li {
+.flex-center li {
 	padding: 18px 0;
 	cursor: pointer;
 	flex: 1;
 }
-li:hover {
+.flex-center li:hover {
 	background-color: #2a1b3a;
 }

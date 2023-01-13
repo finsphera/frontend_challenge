@@ -1,4 +1,4 @@
-header {
+.get-started {
 	display: flex;
 	flex-flow: row wrap;
 	justify-content: space-between;
@@ -6,22 +6,22 @@ header {
 	padding-bottom: 1.5rem;
 }
 
-header ul {
+.get-started ul {
 	list-style: none;
 	display: flex;
 	flex-flow: row wrap;
 }
 
-header li {
+.get-started li {
 	display: block;
 	padding: 20px 40px;
 }
 
-header a {
+.get-started a {
 	text-decoration: none;
 	color: #fff;
 }
-header a:hover {
+.get-started a:hover {
 	border-bottom: #fff 2px solid;
 }
 /* header li:hover {

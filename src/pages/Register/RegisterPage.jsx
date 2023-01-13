@@ -9,7 +9,7 @@ import Navbar from "../../components/Navbar/Navbar";
 import { loginUser } from "../../redux/users/action";
 import "../../styles/forms.css";
 
-const USER_REGEX = /^[a-zA_Z][a-zA-Z0-9-_@.]{3,23}$/;
+const USER_REGEX = /^[a-zA-Z][a-zA-Z0-9-_@.]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%*]).{8,24}$/;
 
 const RegisterPage = () => {
@@ -25,7 +25,7 @@ const RegisterPage = () => {
 	const [termsConditions, setTermConditions] = useState(false);
 
 	const dispatch = useDispatch();
-	const data = useSelector((state) => state.userReducer);
+	const { isAuthenticated } = useSelector((state) => state.userReducer);
 	const navigate = useNavigate();
 
 	const handleChange = (event) => {
@@ -56,10 +56,10 @@ const RegisterPage = () => {
 	};
 
 	useEffect(() => {
-		if (data.isAuthenticated) {
+		if (isAuthenticated) {
 			navigate("/");
 		}
-	}, [data, navigate]);
+	}, [isAuthenticated, navigate]);
 
 	return (
 		<div className="wrap">
