@@ -38,5 +38,5 @@ const Name = styled.h5`
 export default {
   Card,
   CardImage,
-  Name
+  Name,
 }

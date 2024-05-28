@@ -1,4 +1,4 @@
-import { IResponseData, IReviews } from '@/types/Movies'
+import { IResponseData, IReviews } from '@/types/Request'
 import React, { useEffect, useState } from 'react'
 import S from './banner.styles'
 import { insecureFetchFromAPI } from '@/requests/api'

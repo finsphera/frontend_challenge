@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from 'react'
 import { GetServerSideProps } from 'next'
-import { IResponse, IResponseData } from '@/types/Movies'
+import { IResponse, IResponseData } from '@/types/Request'
 import { REQUESTS } from '@/utils/constants'
 import { insecureFetchFromAPI } from '@/requests/api'
 import Container from '@/components/Container/Container'
@@ -69,6 +69,7 @@ const Search = ({
               alt={item.original_title || item.name}
               imageUrl={item.backdrop_path}
               title={item.original_title || item.name}
+              handleCardClick={() => {}}
             />
           ))
         }

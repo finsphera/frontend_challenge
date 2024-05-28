@@ -27,12 +27,26 @@ const CategoryMovies = styled.div`
   overflow-y: hidden;
   overflow-x: scroll;
   padding: 20px;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `
 
 const CategoryInfo = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
+`
+
+const Teaser = styled.div`
+  width: 100%;
+  z-index: 4;
+
+  iframe {
+    width: -webkit-fill-available;
+  }
 `
 
 export default {
@@ -41,4 +55,5 @@ export default {
   CategoryMovies,
   CategoryInfo,
   CategoryLink,
+  Teaser,
 }
