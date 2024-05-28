@@ -32,7 +32,7 @@ const Banner = ({ randomMovie }:IBanner) => {
         <S.MovieStats>
           <S.Stat>
             <RatingReview
-              rating={randomMovie.vote_average}
+              rating={randomMovie?.vote_average}
             />
           </S.Stat>
           <S.Stat>•</S.Stat>
@@ -41,11 +41,11 @@ const Banner = ({ randomMovie }:IBanner) => {
           </S.Stat>
           <S.Stat>•</S.Stat>
           <S.Stat>
-            {randomMovie.release_date.slice(0,4)}
+            {randomMovie?.release_date?.slice(0,4)}
           </S.Stat>
         </S.MovieStats>
         <S.MovieDescription>
-          {randomMovie.overview}
+          {randomMovie?.overview}
         </S.MovieDescription>
       </S.Contents>
     </S.Header>

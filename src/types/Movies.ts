@@ -22,6 +22,13 @@ export interface IMovieData {
   vote_count: number
 }[]
 
+export interface ITVSeriesResponse {
+  total_pages: number
+  total_results: number
+  page: number
+  results: ITVSeriesData[]
+}
+
 export interface ITVSeriesData {
   adult: boolean
   backdrop_path: string
@@ -37,7 +44,7 @@ export interface ITVSeriesData {
   video: boolean
   vote_average: number
   vote_count: number
-}
+}[]
 
 export interface IReviews {
   id: number
