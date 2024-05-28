@@ -17,6 +17,7 @@
     #0071ff33 160deg,
     transparent 360deg
   );
+  
   --secondary-glow: radial-gradient(
     rgba(255, 255, 255, 1),
     rgba(255, 255, 255, 0)
@@ -99,4 +100,13 @@ body {
   html {
     color-scheme: dark;
   }
+}
+
+.nav_sidebar {
+  align-items: center;
+  border-right: 1px solid #202123;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: .75rem;
 }
