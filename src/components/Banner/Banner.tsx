@@ -27,7 +27,7 @@ const Banner = ({ randomMovie }:IBanner) => {
     <S.Header backdroppath={randomMovie?.backdrop_path}>
       <S.Contents>
         <S.MovieTitle>
-          {randomMovie.title || randomMovie.original_title}
+          {randomMovie?.title || randomMovie?.original_title}
         </S.MovieTitle>
         <S.MovieStats>
           <S.Stat>
