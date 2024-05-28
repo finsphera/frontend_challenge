@@ -1,14 +1,21 @@
 import React from 'react'
 import styled from 'styled-components'
+import { AiTwotoneStar } from "react-icons/ai";
 
 const Star = styled.span<{
   rating?: number
   star: number
 }>`
   cursor: 'pointer';
-  color: ${(props) => props.rating && props.rating / 2 >= props.star ? '#04abad' : 'gray'};
   font-size: 1rem;
 
+  path:first-child {
+    fill: ${(props) => props.rating && props.rating / 2 >= props.star ? '#04abad' : 'transparent'};
+  }
+
+  path:last-child {
+    fill: ${(props) => props.rating && props.rating / 2 >= props.star ? '#04abad' : '#04abad'};
+  }
   @media screen and (min-width: 768px) {
     font-size: 1.25rem;
   }
@@ -30,7 +37,7 @@ const RatingReview = ({ rating }: IRaitingReview) => {
           }}
         >
           {' '}
-          ★{' '}
+          <AiTwotoneStar />{' '}
         </Star>
       ))}
     </div>
