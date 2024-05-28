@@ -66,6 +66,7 @@ const Search = ({
         {
           list.map(item => (
             <Card
+              key={item.id}
               alt={item.original_title || item.name}
               imageUrl={item.backdrop_path}
               title={item.original_title || item.name}
