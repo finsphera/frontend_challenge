@@ -10,9 +10,14 @@ export const OPTIONS = {
 
 export const REQUESTS = {
   popularMovieList: 'https://api.themoviedb.org/3/movie/popular',
+  topRatedMovies: 'https://api.themoviedb.org/3/movie/top_rated',
+  upcomingMovies: 'https://api.themoviedb.org/3/movie/upcoming',
+  nowPlaingMovies: 'https://api.themoviedb.org/3/movie/now_playing',
   topRatedmovieList: 'https://api.themoviedb.org/3/movie/top_rated',
-  popularTvSeriesList: 'https://api.themoviedb.org/3/tv/popular',
-  topRatedTvSeriesList: 'https://api.themoviedb.org/3/tv/top_rated',
   getMovieReviews: (movie_id: number) => `https://api.themoviedb.org/3/movie/${movie_id}/reviews`,
   getMovieDetails: (movie_id: number) => `https://api.themoviedb.org/3/movie/${movie_id}`,
+  popularTvSeriesList: 'https://api.themoviedb.org/3/tv/popular',
+  topRatedTvSeriesList: 'https://api.themoviedb.org/3/tv/top_rated',
+  airlingTVSeries: 'https://api.themoviedb.org/3/tv/airing_today',
+  onAirTvSeries: 'https://api.themoviedb.org/3/tv/on_the_air',
 }

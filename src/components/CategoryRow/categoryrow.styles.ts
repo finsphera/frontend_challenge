@@ -2,9 +2,6 @@ import styled from "styled-components";
 
 const Container = styled.div`
   padding: 1rem;
-  @media screen and (min-width: 768px) {
-    padding: 0 4rem;
-  }
 `
 
 const CategoryTitle = styled.h3`

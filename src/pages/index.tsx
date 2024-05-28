@@ -1,14 +1,15 @@
 import Banner from "@/components/Banner/Banner"
 import CategoryRow from "@/components/CategoryRow/CategoryRow"
+import Container from "@/components/Container/Container"
 import { insecureFetchFromAPI } from "@/requests/api"
-import { IMoviesResponse, ITVSeriesData } from "@/types/Movies"
+import { IResponse } from "@/types/Movies"
 import { REQUESTS } from "@/utils/constants"
 import { Random } from "@/utils/helpers"
 import { GetServerSideProps } from "next"
 
 interface IHome {
-  popularMovies: IMoviesResponse
-  popularTvSeries: IMoviesResponse
+  popularMovies: IResponse
+  popularTvSeries: IResponse
 }
 
 const Home = ({
@@ -16,15 +17,9 @@ const Home = ({
   popularTvSeries
 }: IHome) => {
   return (
-    <main
-      style={{
-        display: 'flex',
-        overflow: 'hidden',
-        flexDirection: 'column'
-      }}
-    >
+    <Container>
       <Banner
-        randomMovie={Random(popularMovies.results)}
+        randomItem={Random(popularMovies.results)}
       />
       <CategoryRow
         data={popularMovies.results}
@@ -34,7 +29,7 @@ const Home = ({
         data={popularTvSeries.results}
         title="Lo mas popular"
       />
-    </main>
+    </Container>
   )
 }
 
@@ -50,13 +45,13 @@ export const getServerSideProps: GetServerSideProps = async () => {
       }
     }
   } catch (error) {
-    console.error('Error fetching data:', error);
+    console.error('Error fetching data:', error)
     return {
       props: {
         error: 'Failed to fetch data'
       }
     }
   }
-};
+}
 
 export default Home

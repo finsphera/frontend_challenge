@@ -109,4 +109,6 @@ body {
   flex-direction: column;
   justify-content: center;
   padding: .75rem;
+  position: fixed;
+  height: -webkit-fill-available;
 }
