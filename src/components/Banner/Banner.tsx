@@ -1,4 +1,4 @@
-import { IMovieData, IReviews } from '@/types/Movies'
+import { IResponseData, IReviews } from '@/types/Movies'
 import React, { useEffect, useState } from 'react'
 import S from './banner.styles'
 import { insecureFetchFromAPI } from '@/requests/api'
@@ -6,17 +6,17 @@ import { REQUESTS } from '@/utils/constants'
 import RatingReview from '../RaitingReview/RaitingReview'
 
 interface IBanner {
-  randomMovie: IMovieData
+  randomItem: IResponseData
 }
 
-const Banner = ({ randomMovie }:IBanner) => {
+const Banner = ({ randomItem }:IBanner) => {
   const [reviews, setReviews] = useState<IReviews>({
     id: 0,
     total_results: 0
   })
 
   useEffect(() => {
-    insecureFetchFromAPI(REQUESTS.getMovieReviews(randomMovie.id)).then(({data}) => {
+    insecureFetchFromAPI(REQUESTS.getMovieReviews(randomItem.id)).then(({data}) => {
       setReviews(data)
     }).catch(error => {
       console.error(error)
@@ -24,28 +24,31 @@ const Banner = ({ randomMovie }:IBanner) => {
   }, [])
 
   return (
-    <S.Header backdroppath={randomMovie?.backdrop_path}>
+    <S.Header backdroppath={randomItem?.backdrop_path}>
       <S.Contents>
         <S.MovieTitle>
-          {randomMovie?.title || randomMovie?.original_title}
+          {randomItem?.title || randomItem?.original_title || randomItem?.name}
         </S.MovieTitle>
         <S.MovieStats>
           <S.Stat>
             <RatingReview
-              rating={randomMovie?.vote_average}
+              rating={randomItem?.vote_average}
             />
           </S.Stat>
           <S.Stat>•</S.Stat>
           <S.Stat>
-            {reviews.total_results} Reviews
+            {reviews?.total_results} Reviews
           </S.Stat>
           <S.Stat>•</S.Stat>
           <S.Stat>
-            {randomMovie?.release_date?.slice(0,4)}
+            {
+              randomItem?.release_date?.slice(0,4) ||
+              randomItem?.first_air_date?.slice(0,4)
+            }
           </S.Stat>
         </S.MovieStats>
         <S.MovieDescription>
-          {randomMovie?.overview}
+          {randomItem?.overview}
         </S.MovieDescription>
       </S.Contents>
     </S.Header>

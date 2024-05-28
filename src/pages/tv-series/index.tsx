@@ -1,17 +1,18 @@
 import Banner from '@/components/Banner/Banner'
 import CategoryRow from '@/components/CategoryRow/CategoryRow'
+import Container from '@/components/Container/Container'
 import { insecureFetchFromAPI } from '@/requests/api'
-import { ITVSeriesResponse } from '@/types/Movies'
+import { IResponse } from '@/types/Movies'
 import { REQUESTS } from '@/utils/constants'
 import { Random } from '@/utils/helpers'
 import { GetServerSideProps } from 'next'
 import React from 'react'
 
 interface ITVSeries {
-  airlingTVSeries: ITVSeriesResponse
-  onAirTvSeries: ITVSeriesResponse
-  popularTvSeries: ITVSeriesResponse
-  topRatedTvSeries: ITVSeriesResponse
+  airlingTVSeries: IResponse
+  onAirTvSeries: IResponse
+  popularTvSeries: IResponse
+  topRatedTvSeries: IResponse
 }
 
 const TvSeries = ({
@@ -21,15 +22,9 @@ const TvSeries = ({
   topRatedTvSeries
 }: ITVSeries) => {
   return (
-    <main
-      style={{
-        display: 'flex',
-        overflow: 'hidden',
-        flexDirection: 'column'
-      }}
-    >
+    <Container>
       <Banner
-        randomMovie={Random(topRatedTvSeries.results)}
+        randomItem={Random(popularTvSeries.results)}
       />
       <CategoryRow
         data={airlingTVSeries.results}
@@ -47,7 +42,7 @@ const TvSeries = ({
         data={topRatedTvSeries.results}
         title="Peliculas en vivo"
       />
-    </main>
+    </Container>
   )
 }
 
