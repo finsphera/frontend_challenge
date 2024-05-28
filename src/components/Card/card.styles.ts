@@ -3,6 +3,7 @@ import styled from "styled-components";
 const Card = styled.div`
   cursor: pointer;
   margin-right: 1.5rem;
+  position: relative;
 `
 
 const CardImage = styled.img`
@@ -26,7 +27,16 @@ const CardImage = styled.img`
   }
 `
 
+const Name = styled.h5`
+  bottom: 0;
+  font-size: 2.25rem;
+  font-variant: small-caps;
+  margin: 0;
+  position: absolute;
+`
+
 export default {
   Card,
-  CardImage
+  CardImage,
+  Name
 }

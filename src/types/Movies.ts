@@ -15,8 +15,8 @@ export interface IResponseData {
   overview: string
   popularity: number
   poster_path: string
-  name?: string
-  first_air_date?: string
+  name: string
+  first_air_date: string
   release_date: string
   title: string
   video: boolean

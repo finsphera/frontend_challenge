@@ -16,7 +16,7 @@ const Banner = ({ randomItem }:IBanner) => {
   })
 
   useEffect(() => {
-    insecureFetchFromAPI(REQUESTS.getMovieReviews(randomItem.id)).then(({data}) => {
+    insecureFetchFromAPI(REQUESTS.getMovieReviews(randomItem?.id)).then(({data}) => {
       setReviews(data)
     }).catch(error => {
       console.error(error)

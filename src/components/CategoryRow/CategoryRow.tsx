@@ -1,17 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import S from './categoryrow.styles'
-import { IMovieData } from '@/types/Movies'
+import { IResponseData } from '@/types/Movies'
 import Card from '../Card/Card'
-import { insecureFetchFromAPI } from '@/requests/api'
 
 interface ICategoryRow {
   title: string
-  data: IMovieData[]
+  data: IResponseData[]
 }
 
 const CategoryRow = ({title, data}: ICategoryRow) => {
-  console.log(data)
-
   return (
     <S.Container>
       <S.CategoryInfo>
@@ -22,6 +19,7 @@ const CategoryRow = ({title, data}: ICategoryRow) => {
         {
           data.map(movie => (
             <Card
+              key={movie.id}
               alt={movie.original_title}
               imageUrl={movie.backdrop_path}
             />
