@@ -14,11 +14,18 @@ export const REQUESTS = {
   upcomingMovies: 'https://api.themoviedb.org/3/movie/upcoming',
   nowPlaingMovies: 'https://api.themoviedb.org/3/movie/now_playing',
   topRatedmovieList: 'https://api.themoviedb.org/3/movie/top_rated',
-  getMovieReviews: (movie_id: number) => `https://api.themoviedb.org/3/movie/${movie_id}/reviews`,
-  getMovieDetails: (movie_id: number) => `https://api.themoviedb.org/3/movie/${movie_id}`,
   popularTvSeriesList: 'https://api.themoviedb.org/3/tv/popular',
   topRatedTvSeriesList: 'https://api.themoviedb.org/3/tv/top_rated',
   airlingTVSeries: 'https://api.themoviedb.org/3/tv/airing_today',
   onAirTvSeries: 'https://api.themoviedb.org/3/tv/on_the_air',
   allMediaTypes: 'https://api.themoviedb.org/3/trending/all/day',
+  getTeaserVideos: (id: number) => `https://api.themoviedb.org/3/movie/${id}/videos`,
+  getMovieDetails: (movie_id: number) => `https://api.themoviedb.org/3/movie/${movie_id}`,
+  getMovieReviews: (movie_id: number) => `https://api.themoviedb.org/3/movie/${movie_id}/reviews`,
+}
+
+export const TEASER_OPTIONS = {
+  playerVars: {
+    autoplay: 1,
+  },
 }
