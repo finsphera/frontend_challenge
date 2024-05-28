@@ -5,7 +5,7 @@ export const OPTIONS = {
   headers: {
     accept: 'application/json',
     Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMjk0MzIzZTIzYzc2M2E4MjQ3ZmUyMzg2N2YwMGI2MiIsInN1YiI6IjVmNzY0N2E0MTU2Y2M3MDAzNzRhYWRlMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ErHfMmfpFWqZc6-TnngSiY66oup85TJP3Df-YtCEXT8'
-  }
+  },
 }
 
 export const REQUESTS = {
@@ -20,4 +20,5 @@ export const REQUESTS = {
   topRatedTvSeriesList: 'https://api.themoviedb.org/3/tv/top_rated',
   airlingTVSeries: 'https://api.themoviedb.org/3/tv/airing_today',
   onAirTvSeries: 'https://api.themoviedb.org/3/tv/on_the_air',
+  allMediaTypes: 'https://api.themoviedb.org/3/trending/all/day',
 }
