@@ -1,6 +1,15 @@
 import React from 'react'
-import { useRouter } from 'next/router'
 import Link from 'next/link'
+import styled from 'styled-components'
+import { useRouter } from 'next/router'
+
+const StyledLink = styled(Link)<{
+  path: string
+}>`
+  color: ${(props) => useRouter().pathname ===  props.path ? '#40c1ad' : '#fff'};
+  font-size: 3rem;
+  margin: 2.75rem 0;
+`
 
 interface IMenuItem {
   icon: React.ReactNode
@@ -8,18 +17,13 @@ interface IMenuItem {
 }
 
 const MenuItem = ({ icon, path }: IMenuItem) => {
-  const router = useRouter()
   return (
-    <Link
-    style={{
-      color: router.pathname === path ? '#40c1ad': '#fff',
-      fontSize: '2rem',
-      margin: '2.5rem 0'
-    }}
+    <StyledLink
+      path={path}
       href={path}
     >
       {icon}
-    </Link>
+    </StyledLink>
   )
 }
 
