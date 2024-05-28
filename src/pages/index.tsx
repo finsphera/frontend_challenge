@@ -1,18 +1,38 @@
 import Banner from "@/components/Banner/Banner"
+import CategoryRow from "@/components/CategoryRow/CategoryRow"
 import { insecureFetchFromAPI } from "@/requests/api"
-import { IMoviesResponse } from "@/types/Movies"
+import { IMoviesResponse, ITVSeriesData } from "@/types/Movies"
 import { REQUESTS } from "@/utils/constants"
+import { Random } from "@/utils/helpers"
 import { GetServerSideProps } from "next"
 
+interface IHome {
+  popularMovies: IMoviesResponse
+  popularTvSeries: IMoviesResponse
+}
+
 const Home = ({
-  ...props
-}: IMoviesResponse) => {
+  popularMovies,
+  popularTvSeries
+}: IHome) => {
   return (
     <main
-      style={{display: 'flex', height: '100vh', width: '-webkit-fill-available'}}
+      style={{
+        display: 'flex',
+        overflow: 'hidden',
+        flexDirection: 'column'
+      }}
     >
       <Banner
-        randomMovie={props.results[Math.floor(Math.random() * props.results.length - 1)]}
+        randomMovie={Random(popularMovies.results)}
+      />
+      <CategoryRow
+        data={popularMovies.results}
+        title="Lo mas popular"
+      />
+      <CategoryRow
+        data={popularTvSeries.results}
+        title="Lo mas popular"
       />
     </main>
   )
@@ -20,10 +40,13 @@ const Home = ({
 
 export const getServerSideProps: GetServerSideProps = async () => {
   try {
-    let data = await insecureFetchFromAPI(REQUESTS.popularMovieList)
+    const popularMoviesData = await insecureFetchFromAPI(REQUESTS.popularMovieList)
+    const popularTvSeriesData = await insecureFetchFromAPI(REQUESTS.popularTvSeriesList)
+
     return {
       props: {
-        ...data.data
+        popularMovies: popularMoviesData.data,
+        popularTvSeries: popularTvSeriesData.data,
       }
     }
   } catch (error) {

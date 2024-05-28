@@ -14,7 +14,8 @@ const Header = styled.header<{
   height: 60vh;
   object-fit: contain;
   position: relative;
-  width: 100%;
+  width: -webkit-fill-available;
+  max-width: -webkit-fill-available;
 ` 
 
 const Contents = styled.div`
