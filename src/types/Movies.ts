@@ -1,4 +1,11 @@
-export interface IMovies {
+export interface IMoviesResponse {
+  total_pages: number
+  total_results: number
+  page: number
+  results: IMovieData[]
+}
+
+export interface IMovieData {
   adult:             boolean
   backdrop_path:     string
   genre_ids:         number[]
@@ -13,4 +20,4 @@ export interface IMovies {
   video:             boolean
   vote_average:      number
   vote_count:        number
-}
+}[]

@@ -1,18 +1,19 @@
 import Banner from "@/components/Banner/Banner"
 import { insecureFetchFromAPI } from "@/requests/api"
-import { IMovies } from "@/types/movies"
+import { IMoviesResponse } from "@/types/movies"
 import { REQUESTS } from "@/utils/constants"
 import { GetServerSideProps } from "next"
 
 const Home = ({
   ...props
-}: IMovies) => {
-  console.log('PROPS', props)
+}: IMoviesResponse) => {
   return (
     <main
-      style={{display: 'flex', height: '100vh'}}
+      style={{display: 'flex', height: '100vh', width: '-webkit-fill-available'}}
     >
-      <Banner />
+      <Banner
+        randomMovie={props.results[Math.floor(Math.random() * props.results.length - 1)]}
+      />
     </main>
   )
 }
