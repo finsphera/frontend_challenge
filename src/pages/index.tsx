@@ -1,7 +1,9 @@
 export default function Home() {
   return (
-    <>
-      Challenge
-    </>
-  );
+    <main
+      style={{display: 'flex', height: '100vh'}}
+    >
+      HOME
+    </main>
+  )
 }
