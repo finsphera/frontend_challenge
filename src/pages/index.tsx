@@ -1,6 +1,6 @@
 import Banner from "@/components/Banner/Banner"
 import { insecureFetchFromAPI } from "@/requests/api"
-import { IMoviesResponse } from "@/types/movies"
+import { IMoviesResponse } from "@/types/Movies"
 import { REQUESTS } from "@/utils/constants"
 import { GetServerSideProps } from "next"
 
