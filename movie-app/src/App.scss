@@ -1,0 +1,23 @@
+.app {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+  
+.main-content {
+  margin-left: 100px; /* Same width as sidebar */
+  padding: 20px;
+  width: calc(100% - 100px);
+  transition: z-index 0.3s ease;
+  &.search-modal-open {
+    z-index: 100;
+  }
+}
+
+@media only screen and (max-width: 812px) {
+  .main-content {
+    margin-left: 75px;
+    padding: 0;
+    width: calc(100% - 75px);
+  }
+}
