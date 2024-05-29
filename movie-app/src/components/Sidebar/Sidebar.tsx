@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faSearch } from '@fortawesome/free-solid-svg-icons';
-import SearchModal from './SearchModal';
-import '../styles/Sidebar.scss';
+import SearchModal from '../SearchModal/SearchModal';
+import './Sidebar.scss';
 
 interface SidebarProps {
     onSearchIconClick: () => void; // Function to handle click on search icon

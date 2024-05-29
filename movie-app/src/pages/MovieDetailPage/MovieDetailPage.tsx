@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom'; // Import Link
-import { getMovieDetails, getMovieVideos } from '../services/api';
-import { Movie } from '../types/movie';
-import RateStars from '../components/RateStars';
-import '../styles/MovieDetailPage.scss';
+import { getMovieDetails, getMovieVideos } from '../../services/api';
+import { Movie } from '../../types/movie';
+import RateStars from '../../components/RateStars/RateStars';
+import './MovieDetailPage.scss';
 
 const MovieDetailPage: React.FC = () => {
   const { id } = useParams<{ id: string }>(); // Extracts movie ID from URL params

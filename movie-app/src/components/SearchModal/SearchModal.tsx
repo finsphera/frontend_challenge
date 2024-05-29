@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { getMoviesByQuery } from '../services/api';
-import { Movie } from '../types/movie';
+import { getMoviesByQuery } from '../../services/api';
+import { Movie } from '../../types/movie';
 import { Link } from 'react-router-dom';
-import MovieCard from '../components/MovieCard';
-import '../styles/SearchModal.scss';
+import MovieCard from '../MovieCard/MovieCard';
+import './SearchModal.scss';
 
 interface SearchModalProps {
   isOpen: boolean; // Indicates whether the search modal is open or closed

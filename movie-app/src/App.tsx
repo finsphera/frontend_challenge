@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import MoviesPage from './pages/MoviesPage';
-import MovieDetailPage from './pages/MovieDetailPage';
-import Sidebar from './components/Sidebar';
-import SearchModal from './components/SearchModal';
+import MoviesPage from './pages/MoviesPage/MoviesPage';
+import MovieDetailPage from './pages/MovieDetailPage/MovieDetailPage';
+import Sidebar from './components/Sidebar/Sidebar';
+import SearchModal from './components/SearchModal/SearchModal';
 import './App.scss';
 
 const App: React.FC = () => {

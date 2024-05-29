@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { getPopularMovies } from '../services/api';
-import MovieCard from '../components/MovieCard';
-import { Movie } from '../types/movie';
-import '../styles/MoviePage.scss';
+import { getPopularMovies } from '../../services/api';
+import MovieCard from '../../components/MovieCard/MovieCard';
+import { Movie } from '../../types/movie';
+import './MoviePage.scss';
 
 const MoviesPage: React.FC = () => {
   const [movies, setMovies] = useState<Movie[]>([]); // Holds movie data

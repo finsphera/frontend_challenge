@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/RateStars.scss';
+import './RateStars.scss';
 
 interface RateStarsProps {
   rating: number; // Rating value to be displayed

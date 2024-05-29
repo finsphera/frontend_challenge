@@ -1,9 +1,9 @@
 // src/components/MovieCard.tsx
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Movie } from '../types/movie';
-import RateStars from '../components/RateStars';
-import '../styles/MovieCard.scss';
+import { Movie } from '../../types/movie';
+import RateStars from '../RateStars/RateStars';
+import './MovieCard.scss';
 
 // MovieCard component displays movie information in a card format.
 const MovieCard: React.FC<{ movie: Movie; isHeader?: boolean }> = ({ movie, isHeader = false }) => {
