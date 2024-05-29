@@ -47,6 +47,11 @@ Once you have installed the dependencies and set up the environment variables, y
 npm run dev
 ```
 This will start the development server and open the application in your default browser.
+# Running tests
+To run tests, use the following command:
+```bash
+npm test
+```
 ## Features
 - Browse popular movies
 - View movie details
