@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // API key, base URL, and default language for API requests
-const API_KEY = '3fd4f4303c11b0d8d275b9e7f47f32c7';
+const API_KEY = process.env.REACT_APP_API_KEY;
 const BASE_URL = 'https://api.themoviedb.org/3';
 const LANGUAGE = 'en-US';
 
