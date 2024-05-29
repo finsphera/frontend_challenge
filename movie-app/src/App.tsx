@@ -9,25 +9,29 @@ import './App.scss';
 const App: React.FC = () => {
   const [isSearchModalOpen, setIsSearchModalOpen] = useState<boolean>(false);
 
+  // Function to handle click on search icon
   const handleSearchIconClick = () => {
-    setIsSearchModalOpen(true);
+    setIsSearchModalOpen(true); // Open the search modal
   };
 
+  // Function to handle closing of the search modal
   const handleCloseSearchModal = () => {
-    setIsSearchModalOpen(false);
+    setIsSearchModalOpen(false); // Close the search modal
   };
 
   return (
     <Router>
       <div className="app">
-        {/* Pasamos la función handleSearchIconClick como prop */}
+        {/* Pass the handleSearchIconClick function as a prop */}
         <Sidebar onSearchIconClick={handleSearchIconClick} />
+        {/* Main content with conditional class based on search modal state */}
         <div className={`main-content ${isSearchModalOpen ? 'search-modal-open' : ''}`}>
           <Routes>
             <Route path="/" element={<MoviesPage />} />
             <Route path="/movie/:id" element={<MovieDetailPage />} />
           </Routes>
         </div>
+        {/* Search modal component with isOpen and onClose props */}
         <SearchModal isOpen={isSearchModalOpen} onClose={handleCloseSearchModal} />
       </div>
     </Router>
