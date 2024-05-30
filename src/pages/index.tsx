@@ -24,10 +24,12 @@ const Home = ({
       <CategoryRow
         data={popularMovies.results}
         title="Lo mas popular"
+        requestType={REQUESTS.getMovieDetails}
       />
       <CategoryRow
         data={popularTvSeries.results}
         title="Lo mas popular"
+        requestType={REQUESTS.getTvSeriesDetails}
       />
     </Container>
   )

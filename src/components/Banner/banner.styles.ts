@@ -16,6 +16,11 @@ const Header = styled.header<{
   position: relative;
   width: -webkit-fill-available;
   max-width: -webkit-fill-available;
+  margin-bottom: 4rem;
+
+  @media screen and(min-width: 1024px) {
+    margin-bottom: 2rem;
+  }
 ` 
 
 const Contents = styled.div`

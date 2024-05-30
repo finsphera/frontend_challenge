@@ -4,6 +4,12 @@ const nextConfig = {
   compiler: {
     styledComponents: true,
   },
+  images: {
+    domains: [
+      'localhost',
+      'image.tmdb.org'
+    ],
+  },
 };
 
 export default nextConfig;
