@@ -22,10 +22,11 @@ export const REQUESTS = {
   getTeaserVideos: (id: number) => `https://api.themoviedb.org/3/movie/${id}/videos`,
   getMovieDetails: (movie_id: number) => `https://api.themoviedb.org/3/movie/${movie_id}`,
   getMovieReviews: (movie_id: number) => `https://api.themoviedb.org/3/movie/${movie_id}/reviews`,
+  getTvSeriesDetails: (series_id: number) => `https://api.themoviedb.org/3/tv/${series_id}`
 }
 
 export const TEASER_OPTIONS = {
   playerVars: {
-    autoplay: 1,
+    autoplay: 0,
   },
 }

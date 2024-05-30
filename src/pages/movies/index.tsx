@@ -29,18 +29,23 @@ const Movies = ({
       <CategoryRow
         data={popularMovies.results}
         title="Lo mas popular"
+        requestType={REQUESTS.getMovieDetails}
+        
       />
       <CategoryRow
         data={upcomingMovies.results}
         title="Proximas peliculas"
+        requestType={REQUESTS.getMovieDetails}
       />
       <CategoryRow
         data={topRatedMovies.results}
         title="top rated peliculas"
+        requestType={REQUESTS.getMovieDetails}
       />
       <CategoryRow
         data={nowPlayingMovie.results}
         title="Peliculas en vivo"
+        requestType={REQUESTS.getMovieDetails}
       />
     </Container>
   )

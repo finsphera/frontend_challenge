@@ -71,6 +71,7 @@ const Search = ({
               imageUrl={item.backdrop_path}
               title={item.original_title || item.name}
               handleCardClick={() => {}}
+              id={item.id}
             />
           ))
         }

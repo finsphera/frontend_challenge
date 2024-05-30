@@ -29,18 +29,22 @@ const TvSeries = ({
       <CategoryRow
         data={airlingTVSeries.results}
         title="Lo mas popular"
+        requestType={REQUESTS.getTvSeriesDetails}
       />
       <CategoryRow
         data={onAirTvSeries.results}
         title="Proximas peliculas"
+        requestType={REQUESTS.getTvSeriesDetails}
       />
       <CategoryRow
         data={popularTvSeries.results}
         title="top rated peliculas"
+        requestType={REQUESTS.getTvSeriesDetails}
       />
       <CategoryRow
         data={topRatedTvSeries.results}
         title="Peliculas en vivo"
+        requestType={REQUESTS.getTvSeriesDetails}
       />
     </Container>
   )
