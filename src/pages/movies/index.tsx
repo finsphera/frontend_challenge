@@ -13,6 +13,7 @@ interface IMovies {
   upcomingMovies: IResponse
   topRatedMovies: IResponse
   nowPlayingMovie: IResponse
+  pageName: string 
 }
 
 const Movies = ({
@@ -20,6 +21,7 @@ const Movies = ({
   upcomingMovies,
   topRatedMovies,
   nowPlayingMovie,
+  pageName
 }: IMovies) => {
   const [isLoading, setIsLoading] = useState<boolean>(true)
 
@@ -45,24 +47,32 @@ const Movies = ({
       />
       <CategoryRow
         data={popularMovies.results}
-        title="Lo mas popular"
-        requestType={REQUESTS.getMovieDetails}
+        title="Popular"
+        requestUrl={REQUESTS.getMovieDetails}
+        type="popular"
+        pageName={pageName}
         
       />
       <CategoryRow
         data={upcomingMovies.results}
-        title="Proximas peliculas"
-        requestType={REQUESTS.getMovieDetails}
+        title="Upcoming"
+        requestUrl={REQUESTS.getMovieDetails}
+        type="upcoming"
+        pageName={pageName}
       />
       <CategoryRow
         data={topRatedMovies.results}
-        title="top rated peliculas"
-        requestType={REQUESTS.getMovieDetails}
+        title="Top rated"
+        requestUrl={REQUESTS.getMovieDetails}
+        type="top_rated"
+        pageName={pageName}
       />
       <CategoryRow
         data={nowPlayingMovie.results}
-        title="Peliculas en vivo"
-        requestType={REQUESTS.getMovieDetails}
+        title="Now playing"
+        requestUrl={REQUESTS.getMovieDetails}
+        type="now_playing"
+        pageName={pageName}
       />
     </Container>
   )
@@ -70,7 +80,7 @@ const Movies = ({
 
 export default Movies
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps = async ({resolvedUrl}) => {
   try {
     const popularMoviesData = await insecureFetchFromAPI(REQUESTS.popularMovieList)
     const upcomingMoviesData = await insecureFetchFromAPI(REQUESTS.upcomingMovies)
@@ -82,7 +92,8 @@ export const getServerSideProps: GetServerSideProps = async () => {
         popularMovies: popularMoviesData.data,
         upcomingMovies: upcomingMoviesData.data,
         topRatedMovies: topRatedmovieData.data,
-        nowPlayingMovie: nowPlayingMoviesData.data
+        nowPlayingMovie: nowPlayingMoviesData.data,
+        pageName: resolvedUrl
       }
     }
   } catch (error) {

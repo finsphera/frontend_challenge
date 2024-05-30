@@ -9,6 +9,8 @@ export const OPTIONS = {
 }
 
 export const REQUESTS = {
+  baseMovieSearch: 'https://api.themoviedb.org/3/movie/',
+  baseTVSeriesSearch: 'https://api.themoviedb.org/3/tv/',
   popularMovieList: 'https://api.themoviedb.org/3/movie/popular',
   topRatedMovies: 'https://api.themoviedb.org/3/movie/top_rated',
   upcomingMovies: 'https://api.themoviedb.org/3/movie/upcoming',

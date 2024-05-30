@@ -15,17 +15,17 @@ import Spinner from '../Spinner/Spinner'
 interface IModal {
   id: number
   setOpenModal: Dispatch<boolean>
-  requestType: any
+  requestUrl: any
 }
 
-const Modal = ({ id, setOpenModal, requestType }: IModal) => {
+const Modal = ({ id, setOpenModal, requestUrl }: IModal) => {
   const [selectedMovie, setSelectedMovie] = useState<IResponseData>(defaultValues)
   const [trailerUrl, setTrailerUrl] = useState<string | null>("")
   const [loading, setLoading] = useState<boolean>(true)
 
   useEffect(() => {
     setLoading(true)
-    insecureFetchFromAPI(requestType(id)).then(({ data }) => {
+    insecureFetchFromAPI(requestUrl(id)).then(({ data }) => {
       setSelectedMovie(data)
       MovieTrailer(data.title || data.original_title).then(url => {
         const urlParams = new URLSearchParams(new URL(url).search)
@@ -39,7 +39,7 @@ const Modal = ({ id, setOpenModal, requestType }: IModal) => {
       console.log(error)
       setLoading(false)
     })
-  }, [id, requestType])
+  }, [id, requestUrl])
 
   if (loading) {
     return (

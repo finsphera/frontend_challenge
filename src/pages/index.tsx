@@ -40,12 +40,16 @@ const Home = ({
       <CategoryRow
         data={popularMovies.results}
         title="Lo mas popular"
-        requestType={REQUESTS.getMovieDetails}
+        requestUrl={REQUESTS.getMovieDetails}
+        type="popular"
+        pageName="/movies"
       />
       <CategoryRow
         data={popularTvSeries.results}
         title="Lo mas popular"
-        requestType={REQUESTS.getTvSeriesDetails}
+        requestUrl={REQUESTS.getTvSeriesDetails}
+        type="popular"
+        pageName="/tv-series"
       />
     </Container>
   )

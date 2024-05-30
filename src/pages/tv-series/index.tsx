@@ -14,13 +14,15 @@ interface ITVSeries {
   onAirTvSeries: IResponse
   popularTvSeries: IResponse
   topRatedTvSeries: IResponse
+  pageName: string
 }
 
 const TvSeries = ({
   airlingTVSeries, 
   onAirTvSeries,
   popularTvSeries,
-  topRatedTvSeries
+  topRatedTvSeries,
+  pageName
 }: ITVSeries) => {
   const [isLoading, setIsLoading] = useState<boolean>(true)
 
@@ -45,23 +47,31 @@ const TvSeries = ({
       />
       <CategoryRow
         data={airlingTVSeries.results}
-        title="Lo mas popular"
-        requestType={REQUESTS.getTvSeriesDetails}
+        title="Airling today"
+        requestUrl={REQUESTS.getTvSeriesDetails}
+        type="airing_today"
+        pageName={pageName}
       />
       <CategoryRow
         data={onAirTvSeries.results}
-        title="Proximas peliculas"
-        requestType={REQUESTS.getTvSeriesDetails}
+        title="On the air"
+        requestUrl={REQUESTS.getTvSeriesDetails}
+        type="on_the_air"
+        pageName={pageName}
       />
       <CategoryRow
         data={popularTvSeries.results}
-        title="top rated peliculas"
-        requestType={REQUESTS.getTvSeriesDetails}
+        title="Popular series"
+        requestUrl={REQUESTS.getTvSeriesDetails}
+        type="popular"
+        pageName={pageName}
       />
       <CategoryRow
         data={topRatedTvSeries.results}
-        title="Peliculas en vivo"
-        requestType={REQUESTS.getTvSeriesDetails}
+        title="Top rated series"
+        requestUrl={REQUESTS.getTvSeriesDetails}
+        type="top_rated"
+        pageName={pageName}
       />
     </Container>
   )
@@ -69,7 +79,7 @@ const TvSeries = ({
 
 export default TvSeries
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps = async ({resolvedUrl}) => {
   try {
     const airlingTVSeriesData = await insecureFetchFromAPI(REQUESTS.airlingTVSeries)
     const onAirTvSeriesData = await insecureFetchFromAPI(REQUESTS.onAirTvSeries)
@@ -81,7 +91,8 @@ export const getServerSideProps: GetServerSideProps = async () => {
         airlingTVSeries: airlingTVSeriesData.data,
         onAirTvSeries: onAirTvSeriesData.data,
         popularTvSeries: popularTvSeriesData.data,
-        topRatedTvSeries: topRatedTvSeriesData.data
+        topRatedTvSeries: topRatedTvSeriesData.data,
+        pageName: resolvedUrl
       }
     }
   } catch (error) {

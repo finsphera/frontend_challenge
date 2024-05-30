@@ -4,14 +4,17 @@ import { IResponseData } from '@/types/Request'
 import Card from '../Card/Card'
 import { REQUESTS } from '@/utils/constants'
 import Modal from '../Modal/Modal'
+import { GetServerSideProps } from 'next'
 
 interface ICategoryRow {
   title: string
   data: IResponseData[]
-  requestType: any
+  requestUrl: any
+  type: string
+  pageName: string
 }
 
-const CategoryRow = ({title, data, requestType}: ICategoryRow) => {
+const CategoryRow = ({title, data, requestUrl, type, pageName}: ICategoryRow) => {
   const [openModal, setOpenModal] = useState<boolean>(false)
   const [selectedItemId, setSelectedItemId] = useState<number>(1)
 
@@ -24,7 +27,7 @@ const CategoryRow = ({title, data, requestType}: ICategoryRow) => {
     <S.Container>
       <S.CategoryInfo>
         <S.CategoryTitle>{title}</S.CategoryTitle>
-        <S.CategoryLink>Mostrar mas</S.CategoryLink>
+        <S.CategoryLink href={`${pageName}/${type}`}>Mostrar mas</S.CategoryLink>
       </S.CategoryInfo>
       <S.CategoryMovies>
         {
@@ -46,7 +49,7 @@ const CategoryRow = ({title, data, requestType}: ICategoryRow) => {
           id={selectedItemId}
           {...{
             setOpenModal,
-            requestType
+            requestUrl
           }}
         />
       }

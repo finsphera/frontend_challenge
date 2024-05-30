@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -10,7 +11,7 @@ const CategoryTitle = styled.h3`
   line-height: 1.25vw;
 `
 
-const CategoryLink = styled.a`
+const CategoryLink = styled(Link)`
   color: #838383;
   cursor: pointer;
   display: none;

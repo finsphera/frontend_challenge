@@ -43,6 +43,13 @@ const Search = ({
   allMediaTypes
 }: ISearch) => {
   const [input, setInput] = useState<string>('')
+  const [openModal, setOpenModal] = useState<boolean>(false)
+  const [selectedItemId, setSelectedItemId] = useState<number>(1)
+
+  const handleCardClick = (id: number) => {
+    setOpenModal(true)
+    setSelectedItemId(id)
+  }
 
   const list = useMemo(() => {
     return allMediaTypes.results.filter((e: IResponseData) => {
@@ -70,7 +77,7 @@ const Search = ({
               alt={item.original_title || item.name}
               imageUrl={item.backdrop_path}
               title={item.original_title || item.name}
-              handleCardClick={() => {}}
+              handleCardClick={handleCardClick}
               id={item.id}
             />
           ))
