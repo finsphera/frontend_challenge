@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-background: #0d1117;
+  --color-navbar: #161b22;
+  --color-sidebar: #161b22;
+  --color-text: #c9d1d9;
+  --color-border: #30363d;
+  --color-input-bg: #0d1117;
+  --color-input-border: #30363d;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+
+.navbar {
+  background-color: var(--color-navbar);
+  color: var(--color-text);
+  padding: 1rem 2rem;
+}
+
+.navbar input {
+  background-color: var(--color-input-bg);
+  border: 1px solid var(--color-input-border);
+  color: var(--color-text);
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+
+.sidebar {
+  background-color: var(--color-sidebar);
+  border-right: 1px solid var(--color-border);
+  padding: 1rem;
+}
+
+.sidebar h2 {
+  margin-bottom: 1rem;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin-bottom: 0.5rem;
+}
+
+.sidebar li span {
+  cursor: pointer;
+  color: var(--color-text);
+  padding: 0.5rem;
+  display: block;
+  border-radius: 4px;
+}
+
+.sidebar li span:hover {
+  background-color: var(--color-input-border);
+}
+
+.repo-card {
+  border: 1px solid var(--color-border);
+  background-color: var(--color-background);
+  padding: 1rem;
+  margin: 0.5rem 0;
+  border-radius: 8px;
+}
+
+.repo-card h3 {
+  margin-bottom: 0.5rem;
+}
+
+.repo-card p {
+  margin-bottom: 1rem;
+}
+
+.repo-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+input {
+  padding: 0.5rem;
+  border-radius: 4px;
+  background-color: var(--color-input-bg);
+  border: 1px solid var(--color-input-border);
+  width: 100%;
+  max-width: 300px;
+  color: var(--color-text);
+}
