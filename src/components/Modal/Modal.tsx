@@ -10,6 +10,7 @@ import { IoMdClose } from "react-icons/io";
 import YouTube from 'react-youtube'
 import MovieTrailer from 'movie-trailer'
 import { TEASER_OPTIONS } from '@/utils/constants'
+import Spinner from '../Spinner/Spinner'
 
 interface IModal {
   id: number
@@ -26,20 +27,29 @@ const Modal = ({ id, setOpenModal, requestType }: IModal) => {
     setLoading(true)
     insecureFetchFromAPI(requestType(id)).then(({ data }) => {
       setSelectedMovie(data)
-      setLoading(false)
-    })
-  }, [])
-
-  useEffect(() => {
-    if (trailerUrl) {
-      setTrailerUrl('')
-    } else {
-      MovieTrailer(selectedMovie.title).then(url => {
+      MovieTrailer(data.title || data.original_title).then(url => {
         const urlParams = new URLSearchParams(new URL(url).search)
         setTrailerUrl(urlParams.get('v'))
-      }).catch((error) => console.log(error))
-    }
-  }, [selectedMovie])
+        setLoading(false)
+      }).catch((error) => {
+        console.log(error)
+        setLoading(false)
+      })
+    }).catch((error) => {
+      console.log(error)
+      setLoading(false)
+    })
+  }, [id, requestType])
+
+  if (loading) {
+    return (
+      <S.ModalOverlay>
+        <S.ModalContainer>
+          <Spinner />
+        </S.ModalContainer>
+      </S.ModalOverlay>
+    )
+  }
 
   return (
     <S.ModalOverlay>
