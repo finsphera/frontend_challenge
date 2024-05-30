@@ -1,0 +1,14 @@
+{
+	"singleQuote": false,
+	"trailingComma": "es5",
+	"printWidth": 90,
+	"tabWidth": 2,
+	"htmlWhitespaceSensitivity": "css",
+	"arrowParens": "avoid",
+	"quoteProps": "as-needed",
+	"useTabs": true,
+	"bracketSpacing": true,
+	"bracketSameLine": true,
+	"indent_size": 4,
+	"indent_style": "space"
+}
