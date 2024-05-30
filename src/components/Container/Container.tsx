@@ -1,18 +1,11 @@
 import React from 'react'
-import styled from 'styled-components'
-
-const Wrapper = styled.main`
-  display: flex;
-  flex-direction: column;
-  margin-left: 5rem;
-  overflow: hidden;
-`
+import S from './container.styles'
 
 const Container = ({children}: any) => {
   return (
-    <Wrapper>
+    <S.Wrapper>
       {children}
-    </Wrapper>
+    </S.Wrapper>
   )
 }
 

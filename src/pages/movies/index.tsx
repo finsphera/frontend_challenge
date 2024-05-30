@@ -1,13 +1,13 @@
 import Banner from '@/components/Banner/Banner'
 import CategoryRow from '@/components/CategoryRow/CategoryRow'
 import Container from '@/components/Container/Container'
+import Spinner from '@/components/Spinner/Spinner'
 import { insecureFetchFromAPI } from '@/requests/api'
 import { IResponse } from '@/types/Request'
 import { REQUESTS } from '@/utils/constants'
 import { Random } from '@/utils/helpers'
 import { GetServerSideProps } from 'next'
-import React from 'react'
-
+import React, { useEffect, useState } from 'react'
 interface IMovies {
   popularMovies: IResponse
   upcomingMovies: IResponse
@@ -21,6 +21,23 @@ const Movies = ({
   topRatedMovies,
   nowPlayingMovie,
 }: IMovies) => {
+  const [isLoading, setIsLoading] = useState<boolean>(true)
+
+  useEffect(() => {
+    if (
+      popularMovies &&
+      upcomingMovies &&
+      topRatedMovies &&
+      nowPlayingMovie
+    ) {
+      setIsLoading(false)
+    }
+  }, [popularMovies, upcomingMovies, topRatedMovies, nowPlayingMovie])
+
+  if (isLoading) {
+    return <Spinner />;
+  }
+
   return (
     <Container>
       <Banner
