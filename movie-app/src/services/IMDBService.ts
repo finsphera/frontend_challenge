@@ -18,11 +18,14 @@ export const getGenres = async (): Promise<Genre[]> => {
   }
 }
 
-export const getMoviesByGenre = async (genreId: number): Promise<ResponseDiscoverMovie> => {
+export const getMoviesByGenre = async ({ genreId, page }: { genreId: number, page: number }): Promise<ResponseDiscoverMovie> => {
   try {
     const { data }: { data: ResponseDiscoverMovie } = await api.get('/discover/movie', {
       params: {
-        with_genres: genreId
+        primary_release_year: new Date().getFullYear(),
+        language: 'es-MX',
+        with_genres: genreId,
+        page
       }
     })
 
