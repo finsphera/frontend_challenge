@@ -15,26 +15,26 @@ Landing page to a movie app to show the most popular movies categorized by genre
 ## Roadmap
 
 - [x] Create a initial configuration
-- [ ] Add api connection
-- [ ] Create a layout for the landing page
-- [ ] Create a list of genre movies
-- [ ] Create a movie card
-- [ ] Create a movie information page
-- [ ] Add search functionality
-- [ ] Add tests
+- [x] Add api connection
+- [x] Create a layout for the landing page
+- [x] Create a list of genre movies
+- [x] Create a movie card
+- [x] Create a movie information page
+- [x] Add search functionality
+- [x] Add tests
 
 ## Run Locally
 
 Clone the project
 
 ```bash
-  git clone https://link-to-project
+  git clone https://github.com/DaniPoot/frontend_challenge
 ```
 
 Go to the project directory
 
 ```bash
-  cd my-project
+  cd movie-app
 ```
 
 Install dependencies
@@ -54,7 +54,10 @@ Start the server
 
 To run this project, you will need to add the following environment variables to your .env file
 
-`API_KEY`
+```
+NEXT_PUBLIC_IMDB_BASE_URL="https://api.themoviedb.org/3"
+NEXT_PUBLIC_IMDB_API_KEY="IMDB_API_KEY"
+```
 
 
 ## Running Tests
@@ -68,10 +71,12 @@ To run tests, run the following command
 
 ## Demo
 
-Insert gif or link to demo
+[Movie App](https://frontend-challenge-lovat-tau.vercel.app/)
 
 
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![Home Screenshot](Home.jpeg)
+![Details Screenshot](Movie-Details.jpeg)
+![Favorites Screenshot](./Favorites.jpeg)
 
