@@ -80,3 +80,9 @@ To run tests, run the following command
 ![Details Screenshot](Movie-Details.jpeg)
 ![Favorites Screenshot](./Favorites.jpeg)
 
+
+# Architecture
+
+This is a section to explain the second part of the challenge:
+
+For the hypothetical scenario of making our application more scalable, I'd start by caching the information shown on the homepage. This would help users load the page more quickly since they wouldn't have to fetch the same data over and over again. Also, I'd focus on improving the loading speed of images. Some of them take too long to appear, and others don't load smoothly. Implementing lazy loading for images could solve this issue. Additionally, right now, we store favorite items in memory, which could be risky. Switching to a database to store this information securely would be a smart move. Looking ahead, I'd also suggest we invest time in building reusable components. By structuring our codebase in a modular way, we can save time and effort in future development and ensure consistency across different parts of the application. Moreover, as we expand our application's capabilities, it would be beneficial to plan for connecting to future APIs. This proactive approach will enable seamless integration of new features and services as our application evolves.
