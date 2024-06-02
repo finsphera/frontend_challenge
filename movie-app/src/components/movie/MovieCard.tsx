@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { Movie } from '@/types/'
-import { FavoriteButton } from '../FavoriteButton'
+import { FavoriteButton } from '@/components/FavoriteButton'
 
 export const MovieCard = (movie: Movie) => {
   const { title, poster_url, vote_average, id } = movie
