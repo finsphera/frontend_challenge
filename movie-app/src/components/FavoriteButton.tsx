@@ -5,7 +5,7 @@ import { useFavorites } from '@/hooks/useFavorites'
 import { Movie } from '@/types'
 import { Star } from 'lucide-react'
 
-export const FavoriteButton = ({ movie, className }: { movie: Movie, className: string }) => {
+export const FavoriteButton = ({ movie, className }: { movie: Movie, className?: string }) => {
     const { isFavorite, handleFavorite } = useFavorites(movie)
     return (
     <button onClick={(e) => {
