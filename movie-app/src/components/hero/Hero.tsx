@@ -17,8 +17,8 @@ export const Hero = ({ image, title, href, children, description }: HeroProps) =
         {
           children ?? (
             <div>
-              <p className="text-4xl sm:text-5xl lg:text-7xl font-black max-w-3xl leading-loose mb-5">{ title }</p>
-              <p className="text-xl max-w-4xl lg:mb-8 mb-8 line-clamp-4">{ description }</p>
+              <p className="text-2xl sm:text-4xl md:text-5xl lg:text-7xl font-black max-w-3xl leading-loose mb-5">{ title }</p>
+              <p className="text-lg sm:text-xl max-w-4xl lg:mb-8 mb-8 line-clamp-4">{ description }</p>
               <Link
                 href={href}
                 className="bg-primary px-4 py-2 rounded-lg hover:scale-105 transition-transform font-bold"
