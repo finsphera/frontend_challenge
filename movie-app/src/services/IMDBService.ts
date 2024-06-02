@@ -23,7 +23,6 @@ export const getMoviesByGenre = async ({ genreId, page }: { genreId: number, pag
     const { data }: { data: ResponseDiscoverMovie } = await api.get('/discover/movie', {
       params: {
         primary_release_year: new Date().getFullYear(),
-        language: 'es-MX',
         with_genres: genreId,
         page
       }
