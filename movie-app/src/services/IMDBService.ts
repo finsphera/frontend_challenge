@@ -1,5 +1,5 @@
 import axios from 'redaxios'
-import type { Genre, Movie, ResponseDiscoverMovie } from '../types'
+import type { Genre, Movie, ResponseDiscoverMovie, Cast } from '../types'
 
 const api = axios.create({
   baseURL: process.env.NEXT_PUBLIC_IMDB_BASE_URL,
@@ -51,10 +51,29 @@ export const getMovieDetails = async (id: number): Promise<Movie> => {
     return {
       ...data,
       poster_url: `https://image.tmdb.org/t/p/w500${data.poster_path}`,
-      backdrop_url: `https://image.tmdb.org/t/p/original${data.backdrop_path}`
+      backdrop_url: `https://image.tmdb.org/t/p/original${data.backdrop_path}`,
+        production_companies: data.production_companies?.map((company) => ({
+          ...company,
+          logo_url: company.logo_path && `https://image.tmdb.org/t/p/w500${company?.logo_path}`
+        }))
     }
   } catch (error) {
     throw new Error('Error fetching movie details')
+  }
+}
+
+export const getMovieCredits = async (id: number): Promise<Cast[]> => {
+  try {
+    const { data }  = await api.get(`/movie/${id}/credits`)
+    const { cast }: { cast: Cast[] } = data
+
+    return cast.map((actor) => ({
+      ...actor,
+      profile_url: actor.profile_path && `https://image.tmdb.org/t/p/w500${actor.profile_path}`
+    }))
+
+  } catch (error) {
+    throw new Error('Error fetching movie credits')
   }
 }
 

@@ -13,6 +13,7 @@ export type Movie = {
   vote_average: number,
   backdrop_path: string,
   backdrop_url: string
+  production_companies?: ProductionCompany[]
 }
 
 export type ResponseDiscoverMovie = {
@@ -20,4 +21,20 @@ export type ResponseDiscoverMovie = {
   results: Movie[],
   total_pages: number,
   total_results: number
+}
+
+export type ProductionCompany = {
+  id: number,
+  logo_path: string,
+  logo_url: string,
+  name: string,
+  origin_country: string
+}
+
+export type Cast = {
+  id: number,
+  name: string,
+  profile_path: string,
+  profile_url: string,
+  character: string
 }
