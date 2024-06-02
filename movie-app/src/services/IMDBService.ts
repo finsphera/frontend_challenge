@@ -89,3 +89,21 @@ export const getPopularMovies = async (): Promise<Movie[]> => {
     throw new Error('Error fetching popular movies')
   }
 }
+
+export const searchMovies = async (query: string): Promise<Movie[]> => {
+  try {
+    const { data }: { data: ResponseDiscoverMovie } = await api.get('/search/movie', {
+      params: {
+        query
+      }
+    })
+    return data.results.map((movie: Movie) => {
+      return {
+        ...movie,
+        poster_url: `https://image.tmdb.org/t/p/original${movie.poster_path}`
+      }
+    })
+  } catch (error) {
+    throw new Error('Error fetching search movies')
+  }
+}
