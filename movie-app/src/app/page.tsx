@@ -1,9 +1,10 @@
 import Image from "next/image";
 import { HeroCarousel } from "@/components/hero/HeroCarousel"
-import { getPopularMovies } from "@/services/IMDBService"
+import { GenresSection } from "@/components/GenresSection"
+import { getPopularMovies, getGenres } from "@/services/IMDBService"
 
 export default async function Home() {
-  const movies = await getPopularMovies()
+  const [movies, genres] = await Promise.all([getPopularMovies(), getGenres()]) 
 
   return (
     <div>
@@ -17,6 +18,7 @@ export default async function Home() {
           }
         })}
       />
+      <GenresSection genres={genres} />
     </div>
   );
 }
